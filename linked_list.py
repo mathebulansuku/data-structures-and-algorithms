@@ -33,5 +33,8 @@ class LinkedList():
     return count
   
 
-  def add (self,data): #This method adds a new node to the list
+  def add (self,data): #This method adds a new node to the head of the list
     new_node = Node(data)
+    new_node.next_node = self.head # This node sets the new node added to the list to be the head
+    self.head = new_node #This is a O(n) time operation that reassing the head of the list to the new node
+
