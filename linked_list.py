@@ -31,3 +31,7 @@ class LinkedList():
       count += 1
       current = current.next_node
     return count
+  
+
+  def add (self,data): #This method adds a new node to the list
+    new_node = Node(data)
