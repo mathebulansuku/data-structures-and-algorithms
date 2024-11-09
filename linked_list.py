@@ -38,3 +38,17 @@ class LinkedList():
     new_node.next_node = self.head # This node sets the new node added to the list to be the head
     self.head = new_node #This is a O(n) time operation that reassing the head of the list to the new node
 
+  def __repr__(self):
+    node = []
+    current = self.head
+
+    while current != None:
+      if current is self.head:
+        node.append("[Head: %s]" % current.data)
+      elif current.next_node is None:
+        node.append("[Tail: %s]" % current.data)
+      else:
+        node.append("[%s]" % current.data)
+
+      current = current.next_node
+    return '->'.join(node)
