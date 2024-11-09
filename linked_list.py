@@ -52,3 +52,13 @@ class LinkedList():
 
       current = current.next_node
     return '->'.join(node)
+  
+  def search(self,key_value): #This method searches through each node in the list until it finds the node == to the key_value
+    current = self.head
+
+    while current != None:
+      if current.data == key_value:
+        return current
+      else:
+        current = current.next_node
+      return None
