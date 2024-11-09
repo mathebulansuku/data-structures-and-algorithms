@@ -38,6 +38,21 @@ class LinkedList():
     new_node.next_node = self.head # This node sets the new node added to the list to be the head
     self.head = new_node #This is a O(n) time operation that reassing the head of the list to the new node
 
+  def search(self,key_value): #This method searches through each node in the list until it finds the node == to the key_value
+    current = self.head
+
+    while current != None:
+      if current.data == key_value:
+        return current
+      else:
+        current = current.next_node
+      
+    return None
+  
+  def insert(self, data,index):
+    pass
+
+
   def __repr__(self):
     node = []
     current = self.head
@@ -51,17 +66,6 @@ class LinkedList():
         node.append("[%s]" % current.data)
 
       current = current.next_node
+    
     return '->'.join(node)
   
-  def search(self,key_value): #This method searches through each node in the list until it finds the node == to the key_value
-    current = self.head
-
-    while current != None:
-      if current.data == key_value:
-        return current
-      else:
-        current = current.next_node
-      
-      
-      
-    return None
