@@ -22,3 +22,12 @@ class LinkedList():
 
   def is_empty(self):
     return self.head == None #This method check if the head Node is empty
+  
+  def size(self): #Returns the number of nodes in the list. Takes 0(n) linear time
+    current = self.head
+    count = 0
+
+    while current != None:
+      count += 1
+      current = current.next_node
+    return count
