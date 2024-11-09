@@ -1,4 +1,4 @@
-class Node: 
+class Node(): 
   """
   An object for storing a single node of a linked list.
   Models two attributes - data and the link to the next node in the list
@@ -15,8 +15,7 @@ class Node:
     return "<Node data: %s>" % self.data
   
 
-class LinkedList:
-  head = None
+class LinkedList():
 
   def __init__(self):
     self.head = None
