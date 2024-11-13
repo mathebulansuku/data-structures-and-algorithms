@@ -27,7 +27,7 @@ def split(list): #This function divides the unsorted list at midpoint into subli
 
   return left, right 
 
-  def merge(left, right): #Function merges 2 lists, sorting them in the process, and returns a new merged list
+def merge(left, right): #Function merges 2 lists, sorting them in the process, and returns a new merged list
     l = []
     i = 0
     j = 0
@@ -39,3 +39,18 @@ def split(list): #This function divides the unsorted list at midpoint into subli
       else:
         l.append(right[j])
         j += 1
+
+    while i < len(left):
+        l.append(left[i])
+        i +=1
+      
+    while j < len(right):
+        l.append(right[j])
+        j += 1
+
+    return l
+
+
+alist = [12,22,45,34,65,53,67,89,76,88]
+l = merge_sort(alist)
+print(l)
