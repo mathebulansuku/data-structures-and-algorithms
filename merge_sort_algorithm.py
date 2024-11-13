@@ -51,6 +51,15 @@ def merge(left, right): #Function merges 2 lists, sorting them in the process, a
     return l
 
 
-alist = [12,22,45,34,65,53,67,89,76,88]
+def verify_sorted(list): #This function verifies if the list has been sorted
+  n = len(list)
+
+  if n == 0 or n == 1:
+    return True
+  
+  return list[0] < list[1] and verify_sorted(list[1:])
+
+alist = [12,24,43,45,6,67,78,66,56]
 l = merge_sort(alist)
-print(l)
+print(verify_sorted(alist)) # return False as list is not sorted
+print(verify_sorted(l)) #return True as list has been sorted
