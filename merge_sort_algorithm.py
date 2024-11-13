@@ -9,7 +9,7 @@ def merge_sort(list):
   2. Conquer: Recursively sort the sublists created in previous
   3. Combine: Merge the sorted sublists created in previous step
 
-  Takes overall O(n log n) time
+  Takes overall O(n log n) time and linear space
   """
 
   if len(list) <= 1:
@@ -35,7 +35,7 @@ def split(list):
 
   return left, right 
 
-def merge(left, right): #Function merges 2 lists, sorting them in the process, and returns a new merged list
+def merge(left, right):
 
   """
   Function merges 2 lists, sorting them in the process. 
