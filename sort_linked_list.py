@@ -8,7 +8,9 @@ def merge_sort(linked_list):
 
   Returns the sorted linked list
   """
-  if linked_list.size() == 0 or linked_list.size() == 1:
+  if linked_list.size() == 1:
+    return linked_list
+  elif linked_list.head is None:
     return linked_list
   
   left_half,right_half = split(linked_list)
@@ -53,6 +55,18 @@ def merge(left, right):
     merged_list.append(right[j])
     j +=1
 
-
   return merged_list
+
+def verify_sorted(linked_list): #This function verifies if the list has been sorted
+  n = len(linked_list)
+
+  if n == 0 or n == 1:
+    return True
+  
+  return linked_list[0] < list[1] and verify_sorted(linked_list[1:])
+
+alist = [12,24,43,45,6,67,78,66,56]
+l = merge_sort(alist)
+print(verify_sorted(alist)) # return False as list is not sorted
+print(verify_sorted(l)) #return True as list has been sorted
 
