@@ -25,12 +25,14 @@ def merge_sort(linked_list):
 
 def split(linked_list):
   
-  midpoint = len(linked_list())//2
+  if linked_list == None or linked_list.head == None:
+    left = linked_list
+    right = None
 
-  left = linked_list[midpoint:]
-  right = linked_list[:midpoint]
-
-  return left,right
+    return left, right
+  else:
+    size = linked_list.size()
+    midpoint = size//2
 
 
 def merge(left, right):
