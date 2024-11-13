@@ -8,7 +8,7 @@ def merge_sort(linked_list):
 
   Returns the sorted linked list
   """
-  if linked_list.size() == 1:
+  if linked_list == 1:
     return linked_list
   elif linked_list.head is None:
     return linked_list
