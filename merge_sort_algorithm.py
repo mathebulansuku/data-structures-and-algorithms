@@ -28,4 +28,10 @@ def split(list): #This function divides the unsorted list at midpoint into subli
   return left, right 
 
   def merge(left, right): #Function merges 2 lists, sorting them in the process, and returns a new merged list
-    pass
+    l = []
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+      if left[i] < right[j]: # This compares the values of the sublists and appends the lesser value to the merge list
+        l.append(left[i])
