@@ -8,6 +8,8 @@ def merge_sort(list):
   1. Divide: Find the midpoint of the list and divide into sublists
   2. Conquer: Recursively sort the sublists created in previous
   3. Combine: Merge the sorted sublists created in previous step
+
+  Takes overall O(n log n) time
   """
 
   if len(list) <= 1:
@@ -19,8 +21,14 @@ def merge_sort(list):
 
   return merge(left,right)
 
-def split(list): #This function divides the unsorted list at midpoint into sublists
+def split(list): 
+  """
+  This function divides the unsorted list at midpoint into sublists
+  Returns two sublists - left and right
 
+  Takes overall O(log n) time
+
+  """
   midpoint = len(list)//2
   left = list[:midpoint]
   right = list[midpoint:]
@@ -28,27 +36,34 @@ def split(list): #This function divides the unsorted list at midpoint into subli
   return left, right 
 
 def merge(left, right): #Function merges 2 lists, sorting them in the process, and returns a new merged list
-    l = []
-    i = 0
-    j = 0
 
-    while i < len(left) and j < len(right):
-      if left[i] < right[j]: # This compares the values of the sublists and appends the lesser value to the merge list
+  """
+  Function merges 2 lists, sorting them in the process. 
+  returns a new merged list
+
+  Runs in overall O(n) time
+  """
+  l = []
+  i = 0
+  j = 0
+
+  while i < len(left) and j < len(right):
+    if left[i] < right[j]: # This compares the values of the sublists and appends the lesser value to the merge list
         l.append(left[i])
         i += 1 # Increment the value on the left list
-      else:
+    else:
         l.append(right[j])
         j += 1
 
-    while i < len(left):
+  while i < len(left):
         l.append(left[i])
         i +=1
       
-    while j < len(right):
+  while j < len(right):
         l.append(right[j])
         j += 1
 
-    return l
+  return l
 
 
 def verify_sorted(list): #This function verifies if the list has been sorted
