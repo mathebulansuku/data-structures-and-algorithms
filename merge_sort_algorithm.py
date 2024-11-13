@@ -35,3 +35,7 @@ def split(list): #This function divides the unsorted list at midpoint into subli
     while i < len(left) and j < len(right):
       if left[i] < right[j]: # This compares the values of the sublists and appends the lesser value to the merge list
         l.append(left[i])
+        i += 1 # Increment the value on the left list
+      else:
+        l.append(right[j])
+        j += 1
