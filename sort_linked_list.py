@@ -8,12 +8,12 @@ def merge_sort(linked_list):
 
   Returns the sorted linked list
   """
-  if linked_list == 1:
+  if linked_list.size() == 1:
     return linked_list
   elif linked_list.head is None:
     return linked_list
   
-  left_half,right_half = split(linked_list)
+  left_half,right_half = split(linked_list) # This splits the linked_list in left and right
 
   left = merge_sort(left_half)
   right = merge_sort(right_half)
@@ -34,41 +34,70 @@ def split(linked_list):
     size = linked_list.size()
     midpoint = size//2
 
+    mid_node = linked_list.node_at_index(midpoint - 1)
+
+    left_half = linked_list
+    right_half = LinkedList()
+    right_half.head = mid_node.next_node
+    mid_node.next_node = None
+
+    return left_half, right_half
 
 def merge(left, right):
-  
-  merged_list = []
-  i = 0
-  j = 0
+    """
+    The function merges two linked lists, sorting by data in nodes
+    Returns a new, merged list
+    """
+    # Create a new linked list that contains nodes from left and right lists
+    merged_list = LinkedList()
 
-  while i < len(left) and j < len(right):
-    if left[i] < right[j]:
-      merged_list.append(left[i])
-      i += 1
-    else:
-      merged_list.append(right[j])
-      j+= 1
+    # Add a fake head that is discarded later
+    merged_list.add(0)
 
-  while i < len(left):
-    merged_list.append(left[i])
-    i +=1
+    # Set current to the head of the linked list
+    current = merged_list.head
 
-  while j < len(right):
-    merged_list.append(right[j])
-    j +=1
+    # Obtain head nodes for left and right linked lists
+    left_head = left.head
+    right_head = right.head 
 
-  return merged_list
+    # Iterate over the left and right lists until we reach the tail node
+    while left_head or right_head:
+        if left_head is None:
+            current.next_node = right_head
+            break  # Exit loop since remaining nodes are from right list
+        elif right_head is None:
+            current.next_node = left_head
+            break  # Exit loop since remaining nodes are from left list
+        else:
+            # Obtain node data to perform comparison operations
+            left_data = left_head.data
+            right_data = right_head.data
 
-def verify_sorted(linked_list): #This function verifies if the list has been sorted
-  n = len(linked_list)
+            if left_data < right_data:
+                current.next_node = left_head
+                left_head = left_head.next_node
+            else:
+                current.next_node = right_head
+                right_head = right_head.next_node
+        
+        current = current.next_node  # Advance the current pointer
 
-  if n == 0 or n == 1:
-    return True
-  
-  return linked_list[0] < list[1] and verify_sorted(linked_list[1:])
+    # Discard fake head and set first merged node as head
+    merged_list.head = merged_list.head.next_node
 
-alist = [12,24,43,45,6,67,78,66,56]
-l = merge_sort(alist)
-print(verify_sorted(alist)) # return False as list is not sorted
-print(verify_sorted(l)) #return True as list has been sorted
+    return merged_list
 
+#Test code 
+
+l = LinkedList()
+l.add(12)
+l.add(32)
+l.add(43)
+l.add(45)
+l.add(76)
+l.add(36)
+
+print("unsorted linked list:", l)
+sorted_linked_list = merge_sort(l)
+print("Sorted linked list:", sorted_linked_list)
