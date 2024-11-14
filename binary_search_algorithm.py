@@ -1,3 +1,8 @@
+#Binary search is a searching algorithm used to find an item from a sorted list of items. 
+#It works by first comparing the middle value of the list, and comparing it to the target value.
+#If that is False, it continues by checking if the value is less or greater than the middle value.
+#If the middle value is less, it works with the right half of the list by starting again at the middle value of the right list, continuing the pattern until it finds the value and then returns the index of that value.
+
 def binary_search(list, target):
   first = 0
   last = len(list) - 1
