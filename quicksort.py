@@ -2,6 +2,7 @@
 
 
 def quick_sort(list):
+  
   if len(list) <=1: #base case 
     return list
   pivot = list[0]
@@ -13,7 +14,10 @@ def quick_sort(list):
       pivot_less.append(item) 
     else:
       pivot_plus.append(item)
+  return quick_sort(pivot_less) + [pivot] + quick_sort(pivot_plus)
 
   
-sorted_list = quick_sort(list)
+
+alist = [12,45,6,7,8,99,3,2,4,335,655,7]
+sorted_list = quick_sort(alist)
 print(sorted_list)
