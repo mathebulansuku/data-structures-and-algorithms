@@ -3,21 +3,21 @@
 #After completing the list, it then appends the lowest value to the empty sorted list.
 # It loops until all the values are moved from the unsorted to the sorted list.
 
-def selection_sort(list):
+def selection_sort(unsorted_list):
   sorted_list = []
-  #print("%25s %-25s" % (list,sorted_list))
+  print("%25s %-25s" % (unsorted_list,sorted_list))
 
-  for i in range(0, len(list)):
-    index_to_move = index_of_min(list)
-    sorted_list.append(list.pop(index_to_move))
-    #print("%-25s %-25s" % (list, sorted_list))
+  for i in range(0, len(unsorted_list)):
+    index_to_move = index_of_min(unsorted_list)
+    sorted_list.append(unsorted_list.pop(index_to_move))
+    print("%-25s %-25s" % (unsorted_list, sorted_list))
   return sorted_list
 
-def index_of_min(list):
+def index_of_min(unsorted_list):
   min_index = 0
 
-  for i in range(0, len(list)):
-    if list[i] < list[min_index]:
+  for i in range(0, len(unsorted_list)):
+    if unsorted_list[i] < unsorted_list[min_index]:
       min_index = i
   return min_index
   
