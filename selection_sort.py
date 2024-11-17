@@ -3,6 +3,8 @@
 #After completing the list, it then appends the lowest value to the empty sorted list.
 # It loops until all the values are moved from the unsorted to the sorted list.
 
+#Big O of selection sort is O(n^2)
+
 def selection_sort(unsorted_list):
   sorted_list = []
   print("%25s %-25s" % (unsorted_list,sorted_list))

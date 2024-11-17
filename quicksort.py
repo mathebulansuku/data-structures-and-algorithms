@@ -1,4 +1,6 @@
-# quicksort - 
+# quicksort - A highly efficient and widely used sorting algorithm that works by partitioning a list into smaller sublists, sorting them independently, and combining the results.
+
+# Big O of quicksort is: best case = O(n log n) and worst case = O(n^2)
 
 
 def quick_sort(list):
